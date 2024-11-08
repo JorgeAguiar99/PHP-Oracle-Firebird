@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: php-oracle-firebird
+    environment:
+      - "TZ=America/Sao_Paulo"
+    entrypoint: ./.docker/entrypoint.sh
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html:Z
+    tty: true
+    restart: always
